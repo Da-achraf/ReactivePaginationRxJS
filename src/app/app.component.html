@@ -5,9 +5,12 @@
 </div>
 
 <ul class="self-center">
-  <ng-container *ngIf="(data$ | async) as items; else loading">
-    <li class="border-b-4 border-b-cyan-600 mb-4" *ngFor="let item of items">{{ item.name}} {{ item._id | slice : 15  }}</li>
+  <ng-container *ngIf="(data$ | async) as items">
+    <ng-container *ngIf="!(loading$ | async)">
+      <li class="border-b-4 border-b-cyan-600 mb-4" *ngFor="let item of items">{{ item.name}} {{ item._id | slice : 15  }}</li>
+    </ng-container>
   </ng-container>
+  <ng-template *ngIf="loading$ | async" [ngTemplateOutlet]="loading"></ng-template>
 </ul>
 
 <ng-template #loading>
