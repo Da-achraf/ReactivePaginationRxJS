@@ -23,8 +23,7 @@ export class PaginationService implements OnInit{
     return this.http
       .get(`${this.url}?page=${page}&size=10`)
       .pipe(
-        map((res: any) => res.data),
-        tap((data) => console.log(data))
+        map((res: any) => res.data)
       )
   }
 
