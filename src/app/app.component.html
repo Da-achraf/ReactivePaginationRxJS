@@ -1,0 +1,15 @@
+<div class="flex justify-between items-center text-white my-[1rem] p-[1rem] min-w-[40rem] max-w-[50rem] bg-gradient-to-l from-blue-200 to-cyan-400">
+  <button (click)="onPrevious()" class="bg-blue-500 text-lg text-gray-50 border-slate-400 px-[1rem] py-[.5rem] rounded hover:bg-blue-600">Previous</button>
+  <span>Current Page : {{ currentPage$ | async }}</span>
+  <button (click)="onNext()" class="bg-blue-500 text-lg text-gray-50 border-slate-400 px-[1rem] py-[.5rem] rounded hover:bg-blue-600">Next</button>
+</div>
+
+<ul class="self-center">
+  <ng-container *ngIf="(data$ | async) as items; else loading">
+    <li class="border-b-4 border-b-cyan-600 mb-4" *ngFor="let item of items">{{ item.name}} {{ item._id | slice : 15  }}</li>
+  </ng-container>
+</ul>
+
+<ng-template #loading>
+  <fa-icon animation="spin" size="xl" [icon]="faGear"></fa-icon>
+</ng-template>
