@@ -23,8 +23,10 @@ export class AppComponent {
   constructor(private paginationService: PaginationService) {}
 
   onNext(){
-    this.loading$.next(true)
-    this.currentPage$.next(this.currentPage$.value + 1)
+    if (this.currentPage$.value <= 30){
+      this.loading$.next(true)
+      this.currentPage$.next(this.currentPage$.value + 1)
+    }
   }
 
   onPrevious(){

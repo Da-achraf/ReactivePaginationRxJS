@@ -1,6 +1,7 @@
 <div class="flex justify-between items-center text-gray-700 mb-[1rem] p-[1rem] w-full max-w-[50rem] bg-gradient-to-l from-blue-200 to-cyan-400">
   <button (click)="onPrevious()" class="text-lg w-[5rem] text-gray-950 border-b-[.2rem] border-transparent hover:border-b-[.2rem] hover:border-b-gray-900">Previous</button>
-  <span class="inline-block font-bold box-border w-[2.5rem] px-[1rem] py-[.3rem] rounded-md bg-gradient-to-tr from-slate-300 to-white">{{ currentPage$ | async }}</span>
+
+  <span class="block font-bold box-border min-w-[2.5rem] px-[1rem] py-[.3rem] rounded-md bg-gradient-to-tr from-slate-300 to-white">{{ currentPage$ | async }}</span>
   <button (click)="onNext()" class="text-lg w-[5rem] text-gray-950 border-b-[.2rem] border-transparent hover:border-b-[.2rem] hover:border-b-gray-900">Next</button>
 </div>
 
